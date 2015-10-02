@@ -5,7 +5,7 @@ class ipnett_baas::enroll (
   # echo -n $access_key:$secret_key | openssl enc -e -base64
   $access_token      = undef,
 
-  $hostname          = $::fqnd,
+  $hostname          = $::fqdn,
   $host_description  = $::fqdn,
   $mail_address      = undef,
   $costcenter        = '1000',
