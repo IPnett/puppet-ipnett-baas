@@ -35,9 +35,9 @@ class ipnett_baas::enroll (
   } else {
     case $::osfamily {
       'redhat': {
-         $platform = "RHEL-$operatingsystemmajrelease"
+        $platform = "RHEL-${::operatingsystemmajrelease}"
       }
-      default: { fail("Couldnt guess platform!") }
+      default: { fail("Couldn't guess platform!") }
     }
   }
 
