@@ -1,23 +1,12 @@
 # IPnett BaaS puppet module
 class ipnett_baas (
 
-  $access_token      = undef,
-  $application       = 'filesystem',
-  $compression       = true,
-  $costcenter        = '1000',
-  $deduplication     = true,
   $enable_repo       = true,
-  $encryption        = false,
-  $hostname          = $fqnd,
-  $host_description  = $fqdn,
-  $mail_address      = undef,
-  $platform          = undef,
+  $enable_enroll     = true,
 
 )
 {
-  $dependencies = [ 'ipnett-baas', 'ipnett-baas-setup' ]
-
-  package { $dependencies:
+  package { 'ipnett-baas':
       ensure => 'latest';
   }
 
@@ -31,6 +20,10 @@ class ipnett_baas (
       ensure  => present,
       mode    => '0644',
       require => Package['ipnett-baas'];
+  }
+
+  if $enable_enroll {
+    include ::ipnett_baas::enroll
   }
 
   if $enable_repo {
