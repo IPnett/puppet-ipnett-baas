@@ -1,5 +1,11 @@
 # IPnett BaaS puppet module
-class ipnett_baas
+class ipnett_baas (
+    
+  $access_key_id,
+  $secret_access_key,
+  $enable_repo = true,
+
+)
 {
   $dependencies = [ 'ipnett-baas', 'ipnett-baas-setup' ]
 
