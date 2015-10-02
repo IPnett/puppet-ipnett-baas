@@ -7,6 +7,7 @@ class ipnett_baas (
   $costcenter        = '1000',
   $deduplication     = 'ON',
   $enable_repo       = true,
+  $encryption        = 'OFF',
   $hostname          = $fqnd,
   $host_description  = $fqdn,
   $mail_address      = undef,
