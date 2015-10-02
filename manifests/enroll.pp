@@ -30,6 +30,10 @@ class ipnett_baas::enroll (
   validate_bool($deduplication)
   validate_bool($encryption)
 
+  if ( $encryption && $deduplication ) {
+    fail("encryption and deduplication can not be enabled at the same time.")
+  }
+
   if ($platform) {
     validate_string($platform)
   } else {
