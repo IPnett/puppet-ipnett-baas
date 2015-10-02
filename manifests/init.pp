@@ -2,15 +2,15 @@
 class ipnett_baas (
 
   $access_token      = undef,
+  $application       = 'filesystem',
+  $compression       = 'ON',
+  $costcenter        = '1000',
+  $deduplication     = 'ON',
   $enable_repo       = true,
   $hostname          = $fqnd,
-  $mail_address      = undef,
-  $costcenter        = '1000',
   $host_description  = $fqdn,
-  $compression       = 'ON',
-  $deduplication     = 'ON',
+  $mail_address      = undef,
   $platform          = undef,
-  $application       = 'filesystem',
 
 )
 {
