@@ -34,7 +34,7 @@ class ipnett_baas (
   }
 
   if $enable_repo {
-    include ::ipnett_bass::repo
+    include ::ipnett_baas::repo
   }
 
   service { 'dsmcad':
