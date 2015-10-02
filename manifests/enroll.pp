@@ -33,7 +33,12 @@ class ipnett_baas::enroll (
   if ($platform) {
     validate_string($platform)
   } else {
-    # magic
+    case $::osfamily {
+      'redhat': {
+         $platform = "RHEL-$operatingsystemmajrelease"
+      }
+      default: { fail("Couldnt guess platform!") }
+    }
   }
 
   validate_string($application)
