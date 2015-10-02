@@ -30,7 +30,7 @@ class ipnett_baas::enroll (
   validate_bool($deduplication)
   validate_bool($encryption)
 
-  if ($platform {
+  if ($platform) {
     validate_string($platform)
   } else {
     # magic
