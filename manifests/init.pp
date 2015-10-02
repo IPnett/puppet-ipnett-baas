@@ -1,9 +1,9 @@
 # IPnett BaaS puppet module
 class ipnett_baas (
-    
-  $access_key_id,
-  $secret_access_key,
-  $enable_repo = true,
+
+  $access_key_id     = undef,
+  $secret_access_key = undef,
+  $enable_repo       = true,
 
 )
 {
@@ -24,8 +24,9 @@ class ipnett_baas (
       mode    => '0644',
       require => Package['ipnett-baas'];
   }
+
   if $enable_repo {
-     include ipnett_bass::repo 
+    include ::ipnett_bass::repo
   }
 
   service { 'dsmcad':
