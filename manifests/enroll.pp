@@ -7,13 +7,23 @@ class ipnett_baas::enroll (
   $costcenter        = '1000',
   $deduplication     = true,
   $encryption        = false,
-  $hostname          = $fqnd,
-  $host_description  = $fqdn,
+  $hostname          = $::fqnd,
+  $host_description  = $::fqdn,
   $mail_address      = undef,
   $platform          = undef,
 
 )
 {
+  validate_string($access_token)
+  validate_string($application)
+  validate_bool($compression)
+  validate_string($costcenter)
+  validate_bool($deduplication)
+  validate_bool($encryption)
+  validate_string($hostname)
+  validate_string($host_description)
+  validate_string($mail_address)
+
   package { 'ipnett-baas-setup':
     ensure => 'latest';
   }
