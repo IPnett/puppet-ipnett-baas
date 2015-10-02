@@ -6,7 +6,7 @@ master branch [![Build Status](https://secure.travis-ci.org/IPnett/puppet-ipnett
 Introduction
 ------------
 
-This module manages IPnett Cloud Services BaaS Red Hat/Fedora.
+This module manages IPnett Cloud Services BaaS on Red Hat/Fedora.
 
 
 Examples
