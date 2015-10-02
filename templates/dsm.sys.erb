@@ -1,0 +1,24 @@
+<% @tsmservers.each do |server| %>
+SERVERNAME <%= server %>
+   COMMMETHOD TCPIP
+   TCPSERVERADDRESS <%= server %>
+   TCPPORT          1600
+   TCPADMINPORT     1601
+   SSL              yes
+   SSLREQUIRED      yes
+   TCPBUFFSIZE        32
+   TCPWINDOWSIZE      416
+   PASSWORDACCESS     GENERATE
+   MANAGEDSERVICES    SCHEDULE
+   SCHEDLOGRETENTION  28
+   ERRORLOGRETENTION  28
+   SCHEDCMDDISABLED        yes
+   SCHEDRESTRETRDISABLED   yes
+   SRVPREPOSTSCHEDDISABLED yes
+   SRVPREPOSTSNAPDISABLED  yes
+   REVOKEREMOTEACCESS      ACCESS
+
+<%end %>
+
+ERRORLOGName /var/log/tsm/dsmerror.log
+SCHEDLOGName /var/log/tsm/dsmcad.log
