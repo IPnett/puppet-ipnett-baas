@@ -6,8 +6,19 @@ class ipnett_baas (
 
 )
 {
+  validate_bool($enable_repo)
+  validate_bool($enable_enroll)
+
+  if $enable_repo {
+    include ::ipnett_baas::repo
+  }
+
   package { 'ipnett-baas':
       ensure => 'latest';
+  }
+
+  if $enable_enroll {
+    include ::ipnett_baas::enroll
   }
 
   file {
@@ -20,14 +31,6 @@ class ipnett_baas (
       ensure  => present,
       mode    => '0644',
       require => Package['ipnett-baas'];
-  }
-
-  if $enable_enroll {
-    include ::ipnett_baas::enroll
-  }
-
-  if $enable_repo {
-    include ::ipnett_baas::repo
   }
 
   service { 'dsmcad':
