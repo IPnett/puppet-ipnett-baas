@@ -17,4 +17,10 @@ class ipnett_baas::enroll (
   package { 'ipnett-baas-setup':
     ensure => 'latest';
   }
+
+  exec { 'ipnett-baas-setup':
+    command => "/usr/bin/ipnet-baas-setup -H $hostname -a $application -t $access_token -c $costcenter -i $host_description -m $mail_address -p $platform",
+    creates => "/opt/tivoli/tsm/client/ba/bin/dsm.sys",
+    timeout => 400,
+  }
 }
