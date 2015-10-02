@@ -1,5 +1,9 @@
 # IPnett BaaS repository
-class ipnett_baas::repo {
+class ipnett_baas::repo (
+
+  $distribution = 'el7',
+
+){
   file {
     '/etc/pki/rpm-gpg/RPM-GPG-KEY-IPnett':
       ensure  => file,
