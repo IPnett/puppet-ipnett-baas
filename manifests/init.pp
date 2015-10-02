@@ -2,23 +2,21 @@
 class ipnett_baas
 {
   $dependencies = [ 'ipnett-baas', 'ipnett-baas-setup' ]
-  
+
   package { $dependencies:
       ensure => 'latest';
   }
 
   file {
     '/opt/tivoli/tsm/client/ba/bin/dsm.sys':
-      ensure  => file,
+      ensure  => present,
       mode    => '0644',
-      require => Package['ipnett-baas'],
-      content => template('ipnett_baas/dsm.sys.erb');
-    
+      require => Package['ipnett-baas'];
+
     '/opt/tivoli/tsm/client/ba/bin/dsm.opt':
-      ensure  => file,
+      ensure  => present,
       mode    => '0644',
-      require => Package['ipnett-baas'],
-      content => template('ipnett_baas/dsm.opt.erb');  
+      require => Package['ipnett-baas'];
   }
 
   service { 'dsmcad':
