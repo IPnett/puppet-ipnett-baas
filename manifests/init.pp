@@ -1,9 +1,16 @@
 # IPnett BaaS puppet module
 class ipnett_baas (
 
-  $access_key_id     = undef,
-  $secret_access_key = undef,
+  $access_token      = undef,
   $enable_repo       = true,
+  $hostname          = $fqnd,
+  $mail_address      = undef,
+  $costcenter        = '1000',
+  $host_description  = $fqdn,
+  $compression       = 'ON',
+  $deduplication     = 'ON',
+  $platform          = undef,
+  $application       = 'filesystem',
 
 )
 {
