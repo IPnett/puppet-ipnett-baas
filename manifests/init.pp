@@ -24,6 +24,9 @@ class ipnett_baas (
       mode    => '0644',
       require => Package['ipnett-baas'];
   }
+  if $enable_repo {
+     include ipnett_bass::repo 
+  }
 
   service { 'dsmcad':
     ensure    => running,
