@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "author": "IPnett AS",
   "summary": "Puppet module for IPnett BaaS",
-  "license": "BSD",
+  "license": "BSD-2-Clause",
   "source": "https://github.com/IPnett/puppet-ipnett-baas",
   "project_page": "https://github.com/IPnett/puppet-ipnett-baas",
   "issues_url": "https://github.com/IPnett/puppet-ipnett-baas/issues",
