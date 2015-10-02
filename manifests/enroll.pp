@@ -51,6 +51,7 @@ class ipnett_baas::enroll (
     ensure => 'latest';
   }
 
+  # N.B. only run the setup script if no dsm.sys is found
   exec { 'ipnett-baas-setup':
     command  => "/usr/bin/ipnet-baas-setup -H ${hostname} -a ${application} -t ${access_token} -c ${costcenter} -i ${host_description} -m ${mail_address} -p ${platform}",
     creates  => '/opt/tivoli/tsm/client/ba/bin/dsm.sys',
