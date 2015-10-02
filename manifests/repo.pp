@@ -3,11 +3,10 @@ class ipnett_baas::repo
 {
   case $::osfamily {
     'redhat': {
-      $major = $::os['release']['major']
-      case $major {
+      case $::operatingsystemmajrelease {
         '6': { $distribution = 'el6' }
         '7': { $distribution = 'el7' }
-        default: { fail("Unsupported RedHat release ${major}") }
+        default: { fail("Unsupported RedHat release ${$::operatingsystemmajrelease}") }
       }
 
       file {
