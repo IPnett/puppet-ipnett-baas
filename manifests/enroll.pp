@@ -5,7 +5,7 @@ class ipnett_baas::enroll (
   # echo -n $access_key:$secret_key | openssl enc -e -base64
   $access_token      = undef,
 
-  $hostname          = $::fqnd,
+  $hostname          = $::fqdn,
   $host_description  = $::fqdn,
   $mail_address      = undef,
   $costcenter        = '1000',
@@ -48,9 +48,9 @@ class ipnett_baas::enroll (
   }
 
   exec { 'ipnett-baas-setup':
-    command  => "/usr/bin/ipnet-baas-setup -H $hostname -a $application -t $access_token -c $costcenter -i $host_description -m $mail_address -p $platform",
-    creates  => "/opt/tivoli/tsm/client/ba/bin/dsm.sys",
+    command  => "/usr/bin/ipnet-baas-setup -H ${hostname} -a ${application} -t ${access_token} -c ${costcenter} -i ${host_description} -m ${mail_address} -p ${platform}",
+    creates  => '/opt/tivoli/tsm/client/ba/bin/dsm.sys',
     timeout  => 400,
-    requires => Package["ipnett-baas-setup"],
+    requires => Package['ipnett-baas-setup'],
   }
 }
