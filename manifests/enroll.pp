@@ -30,15 +30,15 @@ class ipnett_baas::enroll (
   validate_bool($deduplication)
   validate_bool($encryption)
 
-  if ( ! $access_token ) {
+  if !$access_token {
     fail("Can't enroll unless given an access token.")
   }
 
-  if ( $encryption and $deduplication ) {
+  if ($encryption and $deduplication) {
     fail('encryption and deduplication can not be enabled at the same time.')
   }
 
-  if ($platform) {
+  if $platform {
     validate_string($platform)
     $baas_platform = $platform
   } else {
