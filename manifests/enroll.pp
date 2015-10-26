@@ -40,6 +40,7 @@ class ipnett_baas::enroll (
 
   if ($platform) {
     validate_string($platform)
+    $baas_platform = $platform
   } else {
     case $::osfamily {
       'redhat': {
