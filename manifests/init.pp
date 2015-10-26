@@ -3,6 +3,7 @@ class ipnett_baas (
 
   $enable_repo       = true,
   $enable_enroll     = true,
+  $enable_tbmr       = false,
 
 )
 {
@@ -14,7 +15,13 @@ class ipnett_baas (
   }
 
   package { 'ipnett-baas':
+    ensure => 'latest';
+  }
+
+  if $enable_tbmr {
+    package { 'ipnett-baas-tbmr':
       ensure => 'latest';
+    }
   }
 
   if $enable_enroll {
