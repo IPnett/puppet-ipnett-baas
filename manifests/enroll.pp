@@ -11,7 +11,7 @@ class ipnett_baas::enroll (
   $costcenter        = '1000',
 
   $compression       = true,
-  $deduplication     = true,
+  $deduplication     = false,
   $encryption        = false,
 
   $platform          = undef,
